@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://team-task-manager-s7nh.onrender.com/api/v1",
 });
 
-// token
 API.interceptors.request.use((req) => {
   const user = JSON.parse(localStorage.getItem("user"));
 
