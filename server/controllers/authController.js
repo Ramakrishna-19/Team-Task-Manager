@@ -1,34 +1,33 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import AdminEmail from "../models/AdminEmail.js";
 
-// generate token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "7d",
   });
 };
 
-// signup
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
-    // check user exists
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // hash password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // create user
+    const isAdmin = await AdminEmail.findOne({ email });
+
     const user = await User.create({
       name,
       email,
       password: hashedPassword,
+      role: isAdmin ? "admin" : "member",
     });
 
     res.status(201).json({
@@ -43,7 +42,6 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// login
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -51,6 +49,13 @@ export const loginUser = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user && (await bcrypt.compare(password, user.password))) {
+      const isAdmin = await AdminEmail.findOne({ email });
+
+      if (isAdmin && user.role !== "admin") {
+        user.role = "admin";
+        await user.save();
+      }
+
       res.json({
         _id: user._id,
         name: user.name,

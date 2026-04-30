@@ -16,7 +16,7 @@ export const createTask = async (req, res) => {
       title,
       description,
       project: projectId,
-      assignedTo,
+      assignedTo: assignedTo || req.user._id,
       dueDate,
     });
 
@@ -52,7 +52,10 @@ export const updateTaskStatus = async (req, res) => {
       return res.status(404).json({ message: "Task not found" });
     }
 
-    // only assigned user can update
+    if (!task.assignedTo) {
+      return res.status(400).json({ message: "Task is not assigned to anyone" });
+    }
+
     if (task.assignedTo.toString() !== req.user._id.toString()) {
       return res.status(403).json({ message: "Not allowed" });
     }

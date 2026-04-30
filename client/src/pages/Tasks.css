@@ -1,0 +1,96 @@
+.tasks-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.tasks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tasks-header button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* FORM */
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.task-form button {
+  padding: 8px 15px;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* LIST */
+.tasks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+/* CARD */
+.task-card {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.task-card h3 {
+  margin-bottom: 5px;
+}
+
+.task-card p {
+  margin-bottom: 8px;
+}
+
+.status {
+  color: #333;
+}
+
+.due {
+  color: red;
+  font-size: 14px;
+}
+
+/* ACTION BUTTONS */
+.task-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.task-actions button {
+  padding: 5px 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+}
+
+/* EMPTY */
+.empty {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+}

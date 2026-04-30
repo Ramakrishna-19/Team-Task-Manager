@@ -7,7 +7,7 @@ import { protect } from "./middleware/authMiddleware.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
-
+import adminRoutes from "./routes/adminRoutes.js";
 
 const app = express();
 
@@ -20,6 +20,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/projects", projectRoutes);
 app.use("/api/v1/tasks", taskRoutes);
 app.use("/api/v1/dashboard", dashboardRoutes);
+app.use("/api/v1/admin", adminRoutes);
 
 app.get("/api/v1/health", (req, res) => {
   res.status(200).json({ status: "OK" });
