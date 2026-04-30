@@ -27,7 +27,7 @@ export default function MakeAdmin() {
   return (
     <div className="make-admin-container">
       <div className="make-admin-box">
-        <h2>Enter your email here to become admin</h2>
+        <h2>Enter your email here to become an admin</h2>
 
         <form onSubmit={handleSubmit}>
           <input
