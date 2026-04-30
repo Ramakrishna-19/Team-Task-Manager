@@ -55,10 +55,9 @@ export default function Login() {
           <button type="submit">Login</button>
         </form>
 
-        {/* 🔥 SWITCH */}
         <p className="switch-text">
           Don't have an account?{" "}
-          <span onClick={() => navigate("/register")}>
+          <span onClick={() => navigate("/")}>
             Sign up
           </span>
         </p>

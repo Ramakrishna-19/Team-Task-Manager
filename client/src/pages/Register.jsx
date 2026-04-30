@@ -69,10 +69,9 @@ export default function Register() {
           <button type="submit">Register</button>
         </form>
 
-        {/* 🔥 SWITCH */}
         <p className="switch-text">
           Already have an account?{" "}
-          <span onClick={() => navigate("/")}>
+          <span onClick={() => navigate("/login")}>
             Login
           </span>
         </p>
