@@ -44,7 +44,7 @@ export default function Projects() {
 
   return (
     <div className="projects-container">
-      {/* HEADER */}
+
       <div className="projects-header">
         <h2>Projects</h2>
 
@@ -55,7 +55,6 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* ADMIN CREATE FORM */}
       {user?.role === "admin" && (
         <form className="project-form" onSubmit={handleCreate}>
           <input
@@ -80,7 +79,6 @@ export default function Projects() {
         </form>
       )}
 
-      {/* PROJECT LIST */}
       <div className="projects-list">
         {projects.length === 0 ? (
           <p className="empty">No projects found</p>

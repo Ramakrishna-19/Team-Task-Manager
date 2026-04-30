@@ -65,7 +65,7 @@ export default function Tasks() {
 
   return (
     <div className="tasks-container">
-      {/* HEADER */}
+
       <div className="tasks-header">
         <h2>Tasks</h2>
         <button onClick={() => navigate("/projects")}>
@@ -73,7 +73,6 @@ export default function Tasks() {
         </button>
       </div>
 
-      {/* ADMIN CREATE FORM */}
       {user?.role === "admin" && (
         <form className="task-form" onSubmit={handleCreate}>
           <input
@@ -106,7 +105,6 @@ export default function Tasks() {
         </form>
       )}
 
-      {/* TASK LIST */}
       <div className="tasks-list">
         {tasks.length === 0 ? (
           <p className="empty">No tasks found</p>
@@ -126,7 +124,6 @@ export default function Tasks() {
                 </p>
               )}
 
-              {/* STATUS BUTTONS */}
               <div className="task-actions">
                 <button onClick={() => updateStatus(task._id, "todo")}>
                   Todo

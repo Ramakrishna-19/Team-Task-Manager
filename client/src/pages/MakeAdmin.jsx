@@ -18,7 +18,7 @@ export default function MakeAdmin() {
       });
 
       alert("Now signup/login with this email to become admin");
-      navigate("/"); // go to login
+      navigate("/");
     } catch (err) {
       alert(err.response?.data?.message || "Error");
     }

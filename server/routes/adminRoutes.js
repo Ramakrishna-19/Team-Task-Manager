@@ -3,12 +3,10 @@ import AdminEmail from "../models/AdminEmail.js";
 
 const router = express.Router();
 
-// PUBLIC but protected by a secret key
 router.post("/register-admin-email", async (req, res) => {
   try {
     const { email, secret } = req.body;
 
-    // 🔐 change this to anything you want
     if (secret !== process.env.ADMIN_SECRET) {
       return res.status(403).json({ message: "Invalid secret" });
     }

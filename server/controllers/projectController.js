@@ -18,7 +18,7 @@ export const createProject = async (req, res) => {
   }
 };
 
-// get all projects (user related)
+// get all projects
 export const getProjects = async (req, res) => {
   try {
     const projects = await Project.find({

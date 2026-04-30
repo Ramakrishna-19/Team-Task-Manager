@@ -27,7 +27,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      {/* 🔥 HEADER */}
+
       <div className="dashboard-header">
         <h1>Dashboard</h1>
 
@@ -41,7 +41,6 @@ export default function Dashboard() {
         </button>
       </div>
 
-      {/* 🔥 NAVIGATION */}
       <div className="nav-buttons">
         <button onClick={() => navigate("/projects")}>
           Manage Projects
@@ -52,7 +51,6 @@ export default function Dashboard() {
         </button>
       </div>
 
-      {/* 🔥 STATS */}
       <div className="stats-grid">
         <div className="card">
           <h3>Total Projects</h3>
